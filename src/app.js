@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 
-// const { uuid } = require("uuidv4");
+const { uuid } = require("uuidv4");
 
 const app = express();
 
@@ -15,7 +15,10 @@ app.get("/repositories", (request, response) => {
 });
 
 app.post("/repositories", (request, response) => {
-  // TODO
+  const id = uuid();
+  const { title, url, techs, likes } = request.body;
+
+  console.log(id, title, url, techs, likes);
 });
 
 app.put("/repositories/:id", (request, response) => {
